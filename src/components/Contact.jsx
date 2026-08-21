@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Send, MapPin, Phone, Mail, Loader2, Wrench, ShoppingCart, ShieldCheck, Layers, Award, Sparkles } from 'lucide-react';
+import { Send, MapPin, Phone, Mail, Loader2, Wrench, ShoppingCart, ShieldCheck, Layers, Award, Sparkles, ExternalLink } from 'lucide-react';
 import axios from 'axios';
+import { socialLinks, WhatsAppIcon } from './SocialLinks';
 
 const Contact = () => {
     const [formData, setFormData] = useState({
@@ -200,6 +201,51 @@ const Contact = () => {
                                             </div>
                                         </div>
                                     </div>
+
+                                    {/* Direct WhatsApp Quick Contact Box */}
+                                    <div className="mt-8 p-4 rounded-2xl bg-[#25D366]/10 border border-[#25D366]/30">
+                                        <div className="flex items-center gap-3 mb-2">
+                                            <div className="w-8 h-8 rounded-full bg-[#25D366] text-white flex items-center justify-center font-bold shrink-0">
+                                                <WhatsAppIcon size={18} />
+                                            </div>
+                                            <div>
+                                                <span className="text-xs font-bold text-white block">Fast WhatsApp Inquiry</span>
+                                                <span className="text-[10px] text-[#25D366] font-semibold block">+91 7382384417</span>
+                                            </div>
+                                        </div>
+                                        <a
+                                            href="https://wa.me/917382384417"
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="w-full bg-[#25D366] hover:bg-[#20ba59] text-white font-extrabold text-xs py-2.5 px-3 rounded-xl flex items-center justify-center gap-2 transition-all transform hover:scale-[1.02] shadow-md"
+                                        >
+                                            <WhatsAppIcon size={16} />
+                                            Message oracco on WhatsApp
+                                        </a>
+                                    </div>
+
+                                    {/* Social Channels Quick Grid */}
+                                    <div className="mt-6">
+                                        <span className="text-[11px] font-bold text-marine-silver/50 uppercase tracking-wider block mb-3">Official Social Media</span>
+                                        <div className="grid grid-cols-3 gap-2">
+                                            {socialLinks.filter(s => s.id !== 'whatsapp').map((social) => {
+                                                const IconComp = social.icon;
+                                                return (
+                                                    <a
+                                                        key={social.id}
+                                                        href={social.url}
+                                                        target="_blank"
+                                                        rel="noopener noreferrer"
+                                                        className="flex flex-col items-center justify-center p-2 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-marine-silver hover:text-white transition-all text-[10px] font-semibold gap-1 group"
+                                                        title={social.actionText}
+                                                    >
+                                                        <IconComp size={18} style={{ color: social.color }} className="group-hover:scale-110 transition-transform" />
+                                                        <span>{social.name}</span>
+                                                    </a>
+                                                );
+                                            })}
+                                        </div>
+                                    </div>
                                 </div>
 
                                 <div className="mt-8 pt-6 border-t border-white/10 text-center">
@@ -209,6 +255,7 @@ const Contact = () => {
                                 </div>
                             </div>
                         </div>
+
 
                         {/* Interactive Inquiry Form */}
                         <div className="lg:w-2/3">
@@ -224,7 +271,7 @@ const Contact = () => {
                                                 required
                                                 type="text"
                                                 className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white focus:border-marine-aqua outline-none text-sm transition-colors"
-                                                placeholder="Pyda Vinay Kumar"
+                                                placeholder="Enter your name here"
                                                 value={formData.name}
                                                 onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                                             />
@@ -254,6 +301,8 @@ const Contact = () => {
                                             <option className="bg-marine-deep text-white">Electrical, Instrumentation & Industrial Works</option>
                                             <option className="bg-marine-deep text-white">Maintenance, Fabrication & Welding</option>
                                             <option className="bg-marine-deep text-white">Manpower & Project Support</option>
+                                            <option className="bg-marine-deep text-white">others</option>
+
                                         </select>
                                     </div>
 

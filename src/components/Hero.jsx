@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, ShieldCheck, UserCheck, Wrench, Package, Building2 } from 'lucide-react';
+import { WhatsAppIcon, SocialIconBar } from './SocialLinks';
 
 const Hero = () => {
     return (
@@ -51,7 +52,7 @@ const Hero = () => {
                     </div>
 
                     {/* Proprietor Badge from PDF Page 1 */}
-                    <div className="mb-10 inline-flex items-center gap-3 p-3.5 rounded-2xl glass-morphism border border-marine-aqua/20 bg-marine-aqua/5 max-w-md">
+                    <div className="mb-8 inline-flex items-center gap-3 p-3.5 rounded-2xl glass-morphism border border-marine-aqua/20 bg-marine-aqua/5 max-w-md">
                         <div className="w-10 h-10 rounded-xl bg-marine-aqua text-marine-deep flex items-center justify-center shrink-0 shadow-md">
                             <UserCheck size={20} className="font-bold" />
                         </div>
@@ -62,19 +63,33 @@ const Hero = () => {
                     </div>
 
                     {/* CTA Buttons */}
-                    <div className="flex flex-col sm:flex-row gap-4 justify-center sm:justify-start">
+                    <div className="flex flex-col sm:flex-row flex-wrap gap-4 justify-center sm:justify-start items-center">
                         <a
                             href="#services"
-                            className="bg-marine-aqua hover:bg-white text-marine-deep px-8 py-4 rounded-full font-black text-sm tracking-wider uppercase flex items-center justify-center gap-2 transition-all transform hover:scale-105 shadow-xl shadow-marine-aqua/20"
+                            className="w-full sm:w-auto bg-marine-aqua hover:bg-white text-marine-deep px-6 py-3.5 rounded-full font-black text-xs sm:text-sm tracking-wider uppercase flex items-center justify-center gap-2 transition-all transform hover:scale-105 shadow-xl shadow-marine-aqua/20"
                         >
                             EXPLORE SERVICES <ArrowRight size={18} />
                         </a>
                         <a
+                            href="https://wa.me/917382384417"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="w-full sm:w-auto bg-[#25D366] hover:bg-[#20ba59] text-white px-6 py-3.5 rounded-full font-black text-xs sm:text-sm tracking-wider uppercase flex items-center justify-center gap-2 transition-all transform hover:scale-105 shadow-xl shadow-[#25D366]/20"
+                        >
+                            <WhatsAppIcon size={18} /> WHATSAPP US
+                        </a>
+                        <a
                             href="#contact"
-                            className="border border-white/20 hover:border-marine-aqua text-white hover:text-marine-aqua px-8 py-4 rounded-full font-black text-sm tracking-wider uppercase transition-all flex items-center justify-center gap-2 glass-morphism"
+                            className="w-full sm:w-auto border border-white/20 hover:border-marine-aqua text-white hover:text-marine-aqua px-6 py-3.5 rounded-full font-black text-xs sm:text-sm tracking-wider uppercase transition-all flex items-center justify-center gap-2 glass-morphism"
                         >
                             GET IN TOUCH
                         </a>
+                    </div>
+
+                    {/* Social Media Bar */}
+                    <div className="mt-8 pt-6 border-t border-white/10 flex flex-wrap items-center gap-4 justify-center sm:justify-start">
+                        <span className="text-xs text-marine-silver/60 font-bold uppercase tracking-wider">Connect With Us:</span>
+                        <SocialIconBar size={18} variant="pills" />
                     </div>
                 </motion.div>
 
@@ -91,13 +106,6 @@ const Hero = () => {
                             alt="Marine Engineering and Sourcing"
                             className="rounded-2xl w-full h-[400px] object-cover"
                         />
-
-                        {/* Floating Highlight Card */}
-                        {/* <div className="absolute bottom-6 left-6 right-6 p-4 rounded-xl glass-morphism border border-white/15 backdrop-blur-xl bg-marine-deep/90">
-                            <p className="text-xs text-marine-silver/80 italic font-medium leading-relaxed">
-                                "Engineering understanding. Reliable sourcing. Practical execution."
-                            </p>
-                        </div> */}
                     </div>
                 </motion.div>
             </div>
@@ -106,4 +114,5 @@ const Hero = () => {
 };
 
 export default Hero;
+
 
